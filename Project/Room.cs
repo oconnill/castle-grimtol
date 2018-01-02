@@ -4,9 +4,9 @@ namespace CastleGrimtol.Project
 {
     public class Room : IRoom
     {
-        string Name { get; set; }
-        string Description { get; set; }
-        List<Item> Items { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public List<Item> Items { get; set; }
 
         public Dictionary<string, Room> Exits { get; set; }
 
@@ -17,7 +17,7 @@ namespace CastleGrimtol.Project
 
         }
 
-        void UseItem(Item item)
+        public void UseItem(Item item)
         {
 
         }

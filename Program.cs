@@ -14,25 +14,48 @@ namespace CastleGrimtol
 
 
 while(playing){
-System.Console.WriteLine("Welcome to the rooms of whatever!!! What is your name?");
+System.Console.WriteLine("You have just entered a haunted Gold Mine!!! You hear a ghostly voice call out 'What is your name?'");
 
-System.Console.WriteLine("{user name} ?  {user name} is your name? Hmm we will just call you {generated name}");
+string UserName = Console.ReadLine().ToLower();
 
-"Game Play: To move in a direction type 'Go <direction of choice'"
-"Directions: north, south, east, west"
-"'Take' to pickup any item you find along your journey"
-"'Use' to use any item in your inventory"
-"'Inventory' will the contents of your inventory"
-"'Look' will give you a discription of the current room you occupy"
-"Room1 Description Here"
-"Room2 Description Here"
-"Room3 Description Here"
-"Bridge Description Here"
-"Room3 Description Here"
-"You find a bottle of hard liquor. How many seconds would like to drink for? Between 1 or 9 seconds!"
+Player NewGuy = new Player(UserName, "Magic Wand");
+
+System.Console.WriteLine($"{UserName}! Welcome! Your only chance of leaving this haunted mine is to traverse the caves ahead. What would you like to do?");
+
+Console.WriteLine(game.CurrentRoom.Description);
+
+         bool Valid = false;
+                while(!Valid)
+                {
+                    Console.WriteLine("Do you want to try again? Y/N");
+                    string PlayAgain = Console.ReadLine().ToLower();
+                    if(PlayAgain == "n" || PlayAgain == "no")
+                    {
+                        playing = false;
+                        Valid = true;
+                    }
+                    else if(PlayAgain == "y" || PlayAgain == "yes")
+                    {
+                        Valid = true;
+                    }
+
+
+
+// "Game Play: To move in a direction type 'Go <direction of choice'"
+// "Directions: north, south, east, west"
+// "'Take' to pickup any item you find along your journey"
+// "'Use' to use any item in your inventory"
+// "'Inventory' will the contents of your inventory"
+// "'Look' will give you a discription of the current room you occupy"
+// "Room1 Description Here"
+// "Room2 Description Here"
+// "Room3 Description Here"
+// "Bridge Description Here"
+// "Room3 Description Here"
+// "You find a bottle of hard liquor. How many seconds would like to drink for? Between 1 or 9 seconds!"
 
  int x = 0;
-//
+
     if ((args.Length == 1) &&
         (Int32.TryParse(args[0], out x) == true) &&
         ((x >= 1) && (x <= 9)))
@@ -50,44 +73,45 @@ System.Console.WriteLine("{user name} ?  {user name} is your name? Hmm we will j
 
 
 
-Console.WriteLine(game.CurrentRoom.Description);
+
 var choice = game.GetUserInput().Split(' ');
 var command = choice[0];
 var option = choice[1]; //if or a try catch
 
-switch(command){
-case "go"
-switch (option) 
-{
-    case "n":
-    case "North":
-    game.Move("north");
-    break;
-    case "s":
-    case "South":
-    game.Move("South");
-    break;
-    default:
-    System.Console.WriteLine("Direction not reconized");
-    break;
-}
+// switch(command)
+// {
+// case 'go':
+// switch (option) 
+// {
+//     case "n":
+//     case "North":
+//     game.Move("north");
+//     break;
+//     case "s":
+//     case "South":
+//     game.Move("South");
+//     break;
+//     default:
+//     System.Console.WriteLine("Direction not reconized");
+//     break;
+// }
 
 
-if(command == "q")
-{
-    playing = false;
-    continue;
-}
-if(choice == "n")
-{
-    game.Move("north");
-    continue;
-}
-if(choice == "s")
-{
-    game.Move("south");
-    continue;
-}
+// if(command == "q")
+// {
+//     playing = false;
+//     continue;
+// }
+// if(choice == "n")
+// {
+//     game.Move("north");
+//     continue;
+// }
+// if(choice == "s")
+// {
+//     game.Move("south");
+//     continue;
+// }
 // Console.Clear();
 
 //Game.type = 
