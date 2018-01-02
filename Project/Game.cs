@@ -23,8 +23,8 @@ namespace CastleGrimtol.Project
 
             Room Room3 = new Room("Room 3", "This is a new Room 3");
                 
-                Items = new List<Item>();
-                Exits = new Dictionary<string, Room>();
+                // Items = new List<Item>();
+                // Exits = new Dictionary<string, Room>();
             
 
             Room1.Exits.Add("north", Room2);
