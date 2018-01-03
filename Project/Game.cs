@@ -9,9 +9,33 @@ namespace CastleGrimtol.Project
         public Player CurrentPlayer { get; set; }
 
         public List<Room> Rooms { get; set; }
+
         public void UseItem(string itemName)
         {
 
+            if (itemName == "wand")
+            {
+                System.Console.WriteLine($"{CurrentRoom.Name} starts to spin. The power of the wand starts working.");
+            }
+            else
+            {
+                System.Console.WriteLine($"This object has no effect");
+            }
+        }
+
+        public void Take()
+        {
+            for (var i = 0; i < CurrentRoom.Items.Count; i++)
+            {
+                if (CurrentRoom.Items[i].Name == "wand")
+                {
+                    CurrentPlayer.Inventory.Add(CurrentRoom.Items[i]);
+                    CurrentRoom.Items.Remove(CurrentRoom.Items[i]);
+
+                }
+
+
+            }
         }
         public void Setup()
         {
@@ -22,10 +46,10 @@ namespace CastleGrimtol.Project
             Room Room2 = new Room("Room 2", "This is a new Room 2");
 
             Room Room3 = new Room("Room 3", "This is a new Room 3");
-                
-                // Items = new List<Item>();
-                // Exits = new Dictionary<string, Room>();
-            
+
+            // Items = new List<Item>();
+            // Exits = new Dictionary<string, Room>();
+
 
             Room1.Exits.Add("north", Room2);
             Room2.Exits.Add("north", Room3);
@@ -64,16 +88,31 @@ namespace CastleGrimtol.Project
 
         void ShowInventory()
         {
-
+            for (var i = 0; i < CurrentPlayer.Inventory.Count; i++)
+            {
+                if(CurrentPlayer.Inventory[i] = 0){
+                    Console.WriteLine("Your bag is empty");
+                }
+                else
+                {
+                System.Console.WriteLine($"{CurrentPlayer.Inventory[i].Name}");
+                }
+            }
         }
 
-        void Look()
+        public void Look()
         {
+            System.Console.WriteLine($"{CurrentRoom.Name}");
+            System.Console.WriteLine($"{CurrentRoom.Description}");
 
         }
-        void Help()
+        public void Help()
         {
-            System.Console.WriteLine("Cant got this way!");
+            System.Console.WriteLine("Do you need some Help!");
+            System.Console.WriteLine("-To move from cavern to carvern type 'n' for 'North or 's' for South");
+            System.Console.WriteLine("-Typing 'i' will display your 'Inventory' contents");
+            System.Console.WriteLine("-Typing 't' will 'Take' any items found along your journey");
+            System.Console.WriteLine("-Typing 'u' to use your Items within your inventory");
         }
 
         public void Reset()
