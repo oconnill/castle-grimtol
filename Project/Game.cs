@@ -15,11 +15,11 @@ namespace CastleGrimtol.Project
 
             if (itemName == "wand")
             {
-                System.Console.WriteLine($"{CurrentRoom.Name} starts to spin. The power of the wand starts working.");
+                System.Console.WriteLine($"{CurrentRoom.Name} starts to spin. The power of the wand starts working. The wand seems to be interacting with an other worldly power.");
             }
             else
             {
-                System.Console.WriteLine($"This object has no effect");
+                System.Console.WriteLine("This object has no effect");
             }
         }
 
@@ -31,7 +31,11 @@ namespace CastleGrimtol.Project
                 {
                     CurrentPlayer.Inventory.Add(CurrentRoom.Items[i]);
                     CurrentRoom.Items.Remove(CurrentRoom.Items[i]);
+                    System.Console.WriteLine("You add the wand to your leather bag!");
 
+                }
+                else{
+                     System.Console.WriteLine("Nothing here to take!");
                 }
 
 
@@ -41,11 +45,13 @@ namespace CastleGrimtol.Project
         {
             Rooms = new List<Room>();
 
-            Room Room1 = new Room("Room 1", "This is a new Room");
+            Room Room1 = new Room("Room 1", "Giant Cave filled with old mining artifacts to old to use. Towards the north you can see a small light flickering.");
 
-            Room Room2 = new Room("Room 2", "This is a new Room 2");
+            Room Room2 = new Room("Room 2", "You duck you head as you enter this cave the staglagmites seem as though they could collapse at any moment. There seem to be strang object on floor. Would you like to 'Take' it?");
 
-            Room Room3 = new Room("Room 3", "This is a new Room 3");
+            Room Room3 = new Room("Room 3", "Finally entering a room with a higher vaulted ceilling with a glowing orb on the wall.");
+
+            Room Room4 = new Room("Room 4", "You wake up in your bed at home realizing it was all just the haunted gold mine, magic wand, glowing orb, dream you have been having the last couple nights.");
 
             // Items = new List<Item>();
             // Exits = new Dictionary<string, Room>();
@@ -55,7 +61,8 @@ namespace CastleGrimtol.Project
             Room2.Exits.Add("north", Room3);
             Room2.Exits.Add("south", Room1);
             Room3.Exits.Add("south", Room2);
-            Room3.Exits.Add("north", Room3);
+            Room3.Exits.Add("north", Room4);
+            Room4.Exits.Add("south", Room3);
             CurrentRoom = Room1;
 
             Item Wand = new Item("Magic Wand", "Heavy and Magical!");
@@ -105,6 +112,7 @@ namespace CastleGrimtol.Project
         {
             System.Console.WriteLine($"{CurrentRoom.Name}");
             System.Console.WriteLine($"{CurrentRoom.Description}");
+            System.Console.WriteLine($"{CurrentRoom.Exits}");
 
         }
         public void Help()
@@ -115,6 +123,8 @@ namespace CastleGrimtol.Project
             System.Console.WriteLine("-Typing 't' will 'Take' any items found along your journey");
             System.Console.WriteLine("-Typing 'u' to use your Items within your inventory");
             System.Console.WriteLine("-Typing 'l' lets you take a more detailed 'Look' at your surroundings");
+            Console.Clear();
+            System.Console.WriteLine($"{CurrentRoom.Description}");
         }
 
         public void Reset()
