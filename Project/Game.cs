@@ -53,8 +53,14 @@ namespace CastleGrimtol.Project
 
             Room1.Exits.Add("north", Room2);
             Room2.Exits.Add("north", Room3);
+            Room2.Exits.Add("south", Room1);
+            Room3.Exits.Add("south", Room2);
             Room3.Exits.Add("north", Room3);
             CurrentRoom = Room1;
+
+            Item Wand = new Item("Magic Wand", "Heavy and Magical!");
+
+            Room2.Items.Add(Wand);
         }
 
         public void Move(string direction)
@@ -79,12 +85,6 @@ namespace CastleGrimtol.Project
             string input = Console.ReadLine().ToLower();
             return input;
         }
-
-        // public void MakeItems();
-
-        // public void Take(Item item);
-
-        // public void MakeExits();
 
         public void ShowInventory()
         {

@@ -14,6 +14,8 @@ namespace CastleGrimtol.Project
         {
             Name = name;
             Description = description;
+            Items = new List<Item>();
+            Exits = new Dictionary<string, Room>();
 
         }
 
