@@ -80,10 +80,10 @@ namespace CastleGrimtol.Project
 
         public bool Playing = true;
 
-        public string GetUserInput()
+        public string GetUserResponse()
         {
-            string input = Console.ReadLine().ToLower();
-            return input;
+            string response = Console.ReadLine().ToLower();
+            return response;
         }
 
         public void ShowInventory()

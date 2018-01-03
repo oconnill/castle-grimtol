@@ -15,6 +15,50 @@ namespace CastleGrimtol
 
             while (playing)
             {
+
+                string decision = game.GetUserResponse();
+
+                void PlayerChoice(string decision)
+                {
+
+                    switch (decision)
+                    {
+                        case "n":
+                        case "North":
+                            game.Move("north");
+                            break;
+
+                        case "s":
+                        case "south":
+                            game.Move("South");
+                            break;
+
+                        case "t":
+                        case "Take":
+                            game.Take();
+                            break;
+
+                        case "h":
+                        case "Help":
+                            game.Help();
+                            break;
+
+                        case "i":
+                        case "Inventory":
+                            game.ShowInventory();
+                            break;
+
+                        case "u":
+                        case "Use":
+                            game.UseItem("wand");
+                            break;
+
+                        default:
+                            System.Console.WriteLine("Direction not reconized");
+                            break;
+                    }
+                }
+
                 System.Console.WriteLine("You have just entered a haunted Gold Mine!!! You hear a ghostly voice call out 'What is your name?'");
 
                 string UserName = Console.ReadLine();
@@ -26,11 +70,15 @@ namespace CastleGrimtol
                 Console.WriteLine(game.CurrentRoom.Description);
 
                 System.Console.WriteLine("Type 'n' or 'North' to continue");
+                System.Console.WriteLine("Type 'n' or 'North' to continue journey or Type 's' or 'South' to retrace your steps ");
+                System.Console.WriteLine("Type 'n' or 'North' to continue journey or Type 's' or 'South' to retrace your steps ");
+                System.Console.WriteLine("Type 't' or 'Take' to pick up this beautiful sparkling magic wand");
+                System.Console.WriteLine("Type 'u' or 'Use' to use item in Inventory");
 
 
                 Console.WriteLine(game.CurrentRoom.Description);
 
-                game.GetUserInput();
+
 
 
 
@@ -51,49 +99,9 @@ namespace CastleGrimtol
                 //     }
 
                 // var command = choice[0];
-                // var option = choice[1]; //if or a try catch
-      string choice = Console.ReadLine();          
+                // var option = choice[1]; //if or a try catch        
 
-                void PlayerChoice(string choice)
-                {
 
-                switch (choice)
-                {
-                    case "n":
-                    case "North":
-                        game.Move("north");
-                        break;
-
-                    case "s":
-                    case "south":
-                        game.Move("South");
-                        break;
-
-                    case "t":
-                    case "Take":
-                        game.Take();
-                        break;
-
-                    case "h":
-                    case "Help":
-                        game.Help();
-                        break;
-
-                    case "i":
-                    case "Inventory":
-                        game.ShowInventory();
-                        break;
-
-                    case "u":
-                    case "Use":
-                        game.UseItem("wand");
-                        break;
-
-                    default:
-                        System.Console.WriteLine("Direction not reconized");
-                        break;
-                }
-}
 
 
 
