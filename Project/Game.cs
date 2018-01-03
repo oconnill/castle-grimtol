@@ -65,7 +65,7 @@ namespace CastleGrimtol.Project
             Room4.Exits.Add("south", Room3);
             CurrentRoom = Room1;
 
-            Item Wand = new Item("Magic Wand", "Heavy and Magical!");
+            Item Wand = new Item("wand", "Heavy and Magical!");
 
             Room2.Items.Add(Wand);
         }
@@ -77,6 +77,9 @@ namespace CastleGrimtol.Project
             if (CurrentRoom.Exits.ContainsKey(direction))
             {
                 CurrentRoom = CurrentRoom.Exits[direction];
+            System.Console.WriteLine($"{CurrentRoom.Name}");
+            System.Console.WriteLine($"{CurrentRoom.Description}");
+            System.Console.WriteLine($"{CurrentRoom.Exits}");
             }
             else
             {
@@ -123,7 +126,6 @@ namespace CastleGrimtol.Project
             System.Console.WriteLine("-Typing 't' will 'Take' any items found along your journey");
             System.Console.WriteLine("-Typing 'u' to use your Items within your inventory");
             System.Console.WriteLine("-Typing 'l' lets you take a more detailed 'Look' at your surroundings");
-            Console.Clear();
             System.Console.WriteLine($"{CurrentRoom.Description}");
         }
 

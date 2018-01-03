@@ -48,13 +48,13 @@ namespace CastleGrimtol
 
                 // player moves to third room
 
-                Console.WriteLine(game.CurrentRoom.Description);
+                // Console.WriteLine(game.CurrentRoom.Description);
 
                 System.Console.WriteLine("Type 'n' or 'North' to continue journey or Type 's' or 'South' to retrace your steps ");
 
                 // player moves to fourth final room
 
-                Console.WriteLine(game.CurrentRoom.Description);
+                // Console.WriteLine(game.CurrentRoom.Description);
 
                 System.Console.WriteLine("Type 's' or 'South' to run from the orb you have found glowing in front of you!!! ");
 
@@ -66,7 +66,7 @@ namespace CastleGrimtol
                 bool Valid = false;
                 while (!Valid)
                 {
-                    Console.WriteLine("Do you want to try again? Y/N");
+                    Console.WriteLine("Do you want to try again? YES/NO");
                     string PlayAgain = Console.ReadLine().ToLower();
                     if (PlayAgain == "n" || PlayAgain == "no")
                     {
@@ -77,46 +77,6 @@ namespace CastleGrimtol
                     {
                         Valid = true;
                     }
-
-
-
-
-
-                    Console.WriteLine(game.CurrentRoom.Description);
-
-
-
-
-
-
-
-
-                    // var command = choice[0];
-                    // var option = choice[1]; //if or a try catch        
-
-
-
-
-                    // Use a second if statement instead of switch
-
-                    // if (command == "q")
-                    // {
-                    //     playing = false;
-                    //     continue;
-                    // }
-                    // if (command == "n")
-                    // {
-                    //     game.Move("north");
-                    //     continue;
-                    // }
-                    // if (command == "s")
-                    // {
-                    //     game.Move("south");
-                    //     continue;
-                    // }
-                    // Console.Clear();
-
-
 
 
                 }
@@ -130,21 +90,29 @@ namespace CastleGrimtol
                     case "n":
                     case "North":
                         game.Move("north");
+                        userChoice = game.GetUserResponse();
+                        PlayerChoice(userChoice);
                         break;
 
                     case "s":
                     case "south":
                         game.Move("south");
+                        userChoice = game.GetUserResponse();
+                        PlayerChoice(userChoice);
                         break;
 
                     case "t":
                     case "Take":
                         game.Take();
+                        userChoice = game.GetUserResponse();
+                        PlayerChoice(userChoice);
                         break;
 
                     case "h":
                     case "Help":
                         game.Help();
+                        userChoice = game.GetUserResponse();
+                        PlayerChoice(userChoice);
                         break;
 
                     case "i":
@@ -154,7 +122,9 @@ namespace CastleGrimtol
 
                     case "l":
                     case "Look":
-                        game.ShowInventory();
+                        game.Look();
+                        userChoice = game.GetUserResponse();
+                        PlayerChoice(userChoice);
                         break;
 
                     case "u":
