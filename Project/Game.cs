@@ -86,16 +86,17 @@ namespace CastleGrimtol.Project
 
         // public void MakeExits();
 
-        void ShowInventory()
+        public void ShowInventory()
         {
             for (var i = 0; i < CurrentPlayer.Inventory.Count; i++)
             {
-                if(CurrentPlayer.Inventory[i] = 0){
+                if (CurrentPlayer.Inventory[i] == null)
+                {
                     Console.WriteLine("Your bag is empty");
                 }
                 else
                 {
-                System.Console.WriteLine($"{CurrentPlayer.Inventory[i].Name}");
+                    System.Console.WriteLine($"{CurrentPlayer.Inventory[i].Name}");
                 }
             }
         }
@@ -113,6 +114,7 @@ namespace CastleGrimtol.Project
             System.Console.WriteLine("-Typing 'i' will display your 'Inventory' contents");
             System.Console.WriteLine("-Typing 't' will 'Take' any items found along your journey");
             System.Console.WriteLine("-Typing 'u' to use your Items within your inventory");
+            System.Console.WriteLine("-Typing 'l' lets you take a more detailed 'Look' at your surroundings");
         }
 
         public void Reset()
