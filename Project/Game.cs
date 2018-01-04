@@ -78,7 +78,9 @@ namespace CastleGrimtol.Project
             }
             else
             {
-                System.Console.WriteLine("This object has no effect");
+                System.Console.WriteLine("This object has no effect. In using the wand without the orb the darkness of the cave encloses you. Try Again!");
+                Setup();
+                
             }
         }
 
@@ -166,11 +168,6 @@ namespace CastleGrimtol.Project
         {
             Setup();
         }
-
-
-
-        //No need to Pass a room since Items can only be used in the CurrentRoom
-
 
     }
 }
