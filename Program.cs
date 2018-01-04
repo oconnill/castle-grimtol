@@ -23,34 +23,7 @@ namespace CastleGrimtol
                 userChoice = game.GetUserResponse();
                 PlayerChoice(userChoice);
 
-
-
                 //player moves to second room
-
-
-
-                System.Console.WriteLine("Type 'l' or 'Look' for a better view of the room your in");
-
-                System.Console.WriteLine("Type 't' or 'Take' to pick up this beautiful sparkling magic wand");
-
-                System.Console.WriteLine("Type 'n' or 'North' to continue journey or Type 's' or 'South' to retrace your steps ");
-
-                // player moves to third room
-
-                // Console.WriteLine(game.CurrentRoom.Description);
-
-                System.Console.WriteLine("Type 'n' or 'North' to continue journey or Type 's' or 'South' to retrace your steps ");
-
-                // player moves to fourth final room
-
-                // Console.WriteLine(game.CurrentRoom.Description);
-
-                System.Console.WriteLine("Type 's' or 'South' to run from the orb you have found glowing in front of you!!! ");
-
-                System.Console.WriteLine("Or Type 'u' or 'Use' to use item in Inventory");
-
-
-
 
                 bool Valid = false;
                 while (!Valid)

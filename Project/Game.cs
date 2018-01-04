@@ -35,7 +35,7 @@ namespace CastleGrimtol.Project
 
             Room Room2 = new Room()
             {
-                Description = "You duck you head as you enter this cave the staglagmites seem as though they could collapse at any moment. There seem to be strange object on floor. Would you like to 'Take' it?",
+                Description = "You duck you head as you enter this cave the staglagmites seem as though they could collapse at any moment. There seem to be strange object on floor. Would you like to 'Take' it? Type 't' or 'Take' to pick up this beautiful sparkling magic wand;",
                 Name = "Cave of Sharp Stone",
                 Exits = new Dictionary<string, Room>(),
                 Items = new List<Item>()
@@ -116,7 +116,7 @@ namespace CastleGrimtol.Project
             }
             else
             {
-                System.Console.WriteLine("Cant got this way!");
+                System.Console.WriteLine("Cant go this way!");
             }
         }
 
