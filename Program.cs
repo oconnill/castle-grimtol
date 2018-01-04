@@ -10,24 +10,13 @@ namespace CastleGrimtol
 
             var game = new Game();
             game.Setup();
-            //create player
+            game.CreatePlayer();
             var playing = true;
             string userChoice = "";
 
 
             while (playing)
             {
-
-
-
-                System.Console.WriteLine("You have just entered a haunted Gold Mine!!! You hear a ghostly voice call out 'What is your name?'");
-
-                string UserName = Console.ReadLine();
-
-                Player NewGuy = new Player(UserName, "Empty Leather Bag");
-
-                System.Console.WriteLine($"{UserName}! Welcome! Your only chance of leaving this haunted mine alive is to head 'North' into the caves ahead. What would you like to do?");
-
 
                 System.Console.WriteLine("Type 'n' or 'North' to continue. You can always type 'h' or 'Help' or 'l' for 'Look' for a better view");
 
@@ -103,7 +92,7 @@ namespace CastleGrimtol
 
                     case "t":
                     case "Take":
-                        game.Take();
+                        game.Take("wand");
                         userChoice = game.GetUserResponse();
                         PlayerChoice(userChoice);
                         break;
@@ -118,6 +107,8 @@ namespace CastleGrimtol
                     case "i":
                     case "Inventory":
                         game.ShowInventory();
+                        userChoice = game.GetUserResponse();
+                        PlayerChoice(userChoice);
                         break;
 
                     case "l":
@@ -130,6 +121,8 @@ namespace CastleGrimtol
                     case "u":
                     case "Use":
                         game.UseItem("wand");
+                        userChoice = game.GetUserResponse();
+                        PlayerChoice(userChoice);
                         break;
 
                     default:
